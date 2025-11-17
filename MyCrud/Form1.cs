@@ -114,7 +114,9 @@ namespace MyCrud
                                    MessageBoxIcon.Warning);
             if (confirmResult == DialogResult.Yes)
             {
-
+                DB.pStudentDel(UserId);
+                var result = DB.pStudentSearch(tbLnameSearch.Text);
+                gvStudent.DataSource = result;
             }
         }
     }
