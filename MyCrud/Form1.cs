@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -128,6 +130,14 @@ namespace MyCrud
             if (sdReport.ShowDialog() == DialogResult.OK)
             {
                 Text = sdReport.FileName;
+                DataTable dt = DB.pStudentSearchDT(tbLnameSearch.Text);
+                using (XLWorkbook wb = new XLWorkbook())
+                {
+                    var sheet = wb.AddWorksheet(dt, "User report");
+                    //sheet.Columns("A", "G").AdjustToContents();
+                    wb.SaveAs(sdReport.FileName);
+                    Process.Start(sdReport.FileName);
+                }
             }
         }
     }

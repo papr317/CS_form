@@ -17,24 +17,26 @@ namespace MyCrud
         {
             using (SqlConnection db = new SqlConnection(con))
             {
-                return db.Query<StudentModel>("pStudentSearch", 
-                    new { @lname = lname }, 
+                return db.Query<StudentModel>("pStudentSearch",
+                    new { @lname = lname },
                     commandType: System.Data.CommandType.StoredProcedure).ToList();
-            }            
+            }
         }
 
         public static DataTable pStudentSearchDT(string lname)
         {
             using (SqlConnection db = new SqlConnection(con))
             {
+                db.Open();
                 using (SqlCommand cmd = new SqlCommand("pStudentSearch", db))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@lname", lname);
                     DataTable dt = new DataTable();
                     dt.Load(cmd.ExecuteReader());
+                    db.Close();
                     return dt;
-                }
+                }                
             }
         }
 
@@ -52,7 +54,7 @@ namespace MyCrud
         {
             using (SqlConnection db = new SqlConnection(con))
             {
-                return db.Query<StudentAddOrEditModel>("pGetStudentById", new { @id = id}, commandType: System.Data.CommandType.StoredProcedure).FirstOrDefault();                
+                return db.Query<StudentAddOrEditModel>("pGetStudentById", new { @id = id }, commandType: System.Data.CommandType.StoredProcedure).FirstOrDefault();
             }
         }
 
@@ -64,6 +66,6 @@ namespace MyCrud
                 return "ok";
             }
         }
-    }    
+    }
 }
 
