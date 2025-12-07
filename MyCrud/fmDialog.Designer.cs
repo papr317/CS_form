@@ -37,8 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbLname = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btOk = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
+            this.btOk = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -121,6 +121,16 @@
             this.panel1.Size = new System.Drawing.Size(398, 44);
             this.panel1.TabIndex = 20;
             // 
+            // btCancel
+            // 
+            this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btCancel.Location = new System.Drawing.Point(195, 9);
+            this.btCancel.Name = "btCancel";
+            this.btCancel.Size = new System.Drawing.Size(75, 23);
+            this.btCancel.TabIndex = 1;
+            this.btCancel.Text = "Cancel";
+            this.btCancel.UseVisualStyleBackColor = true;
+            // 
             // btOk
             // 
             this.btOk.Location = new System.Drawing.Point(105, 9);
@@ -131,20 +141,12 @@
             this.btOk.UseVisualStyleBackColor = true;
             this.btOk.Click += new System.EventHandler(this.btOk_Click);
             // 
-            // btCancel
-            // 
-            this.btCancel.Location = new System.Drawing.Point(195, 9);
-            this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(75, 23);
-            this.btCancel.TabIndex = 1;
-            this.btCancel.Text = "Cancel";
-            this.btCancel.UseVisualStyleBackColor = true;
-            // 
             // fmDialog
             // 
             this.AcceptButton = this.btOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.CancelButton = this.btCancel;
             this.ClientSize = new System.Drawing.Size(398, 217);
             this.Controls.Add(this.panel1);
